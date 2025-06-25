@@ -1,26 +1,126 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --breakpoint-xs: 475px;
+
+  --color-primary-100: #ffe8f0;
+  --color-primary: #000080;
+
+  --color-black-100: #333333;
+  --color-black-200: #7d8087;
+  --color-black: #000000;
+
+  --color-white-100: #f7f7f7;
+  --color-white: #ffffff;
+
+  --font-work-sans: var(--font-work-sans);
+
+  --shadow-100: 2px 2px 0px 2px rgb(0, 0, 0);
+  --shadow-200: 2px 2px 0px 2px rgb(238, 43, 105);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+@utility flex-between {
+  @apply flex justify-between items-center;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+@utility text-30-semibold {
+  @apply font-semibold text-[30px] text-black;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility text-26-semibold {
+  @apply font-semibold text-[26px] text-black;
+}
+
+
+@utility text-16-medium {
+  @apply font-medium text-[16px] text-black;
+}
+
+@utility hero_container {
+  @apply w-full min-h-[530px] flex justify-center items-center flex-col py-10 px-6 
+           bg-[url('/banner.png')]
+           bg-cover bg-center bg-no-repeat;
+}
+
+
+@utility heading {
+  @apply uppercase bg-black px-6 py-3 font-work-sans font-extrabold text-white sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5;
+}
+
+@utility sub-heading {
+  @apply font-medium text-[20px] text-black max-w-2xl text-center break-words;
+}
+
+@utility section_container {
+  @apply px-6 py-10 max-w-7xl mx-auto;
+}
+
+@utility card_grid {
+  @apply grid md:grid-cols-3 sm:grid-cols-2 gap-5;
+}
+
+
+@utility dropdown-menu {
+  @apply w-full! border-[2px]! border-black!  bg-white! p-5! rounded-2xl!;
+}
+
+@utility search-form {
+  @apply max-w-3xl w-full min-h-[60px] bg-white rounded-[80px] text-[20px] mt-8 pl-6 pr-2 flex flex-row items-center gap-5;
+}
+
+@utility search-input {
+  @apply flex-1 font-bold placeholder:font-semibold placeholder:text-black-100 w-full h-auto outline-hidden;
+}
+
+@utility search-btn {
+  @apply size-[45px]! rounded-full! bg-black! flex! justify-center! items-center! cursor-pointer;
+}
+
+@utility artist-card {
+  @apply bg-white border-[2px]  py-6 px-5 rounded-[22px] shadow-100 hover:border-primary transition-all duration-500 hover:shadow-200 hover:bg-primary-100;
+}
+
+@utility artist-card_location {
+  @apply font-medium text-[16px] bg-primary-100 px-4 py-2 rounded-full group-hover:bg-white-100 truncate max-w-[180px];
+}
+
+@utility artist-card_price {
+  @apply font-normal text-[16px] line-clamp-2 my-3 text-black-100 break-all;
+}
+
+@utility artist-card_profile {
+  @apply flex justify-center items-center w-[48px] h-[48px] bg-indigo-700 text-white font-bold rounded-full;
+}
+
+@utility artist-card_btn {
+  @apply w-full bg-black! hover:bg-primary! text-white cursor-pointer;
+}
+
+@utility artist-card_img {
+  @apply w-full h-[164px] rounded-[10px] object-cover;
+}
+
+
+@utility artist-form {
+  @apply max-w-2xl mx-auto bg-white my-10 space-y-8 px-6;
+}
+
+@utility artist-form_label {
+  @apply font-bold text-[18px] text-black uppercase;
+}
+
+@utility artist-form_input {
+  @apply border-[2px]! border-black! px-5! py-6! text-[18px]! text-black! font-semibold! rounded-xl! mt-3! placeholder:text-black-200!;
+}
+
+
+@utility artist-form_error {
+  @apply text-red-500 mt-2 ml-5;
+}
+
+
+@utility artist-form_btn {
+  @apply bg-primary! rounded-xl! cursor-pointer p-5! min-h-[70px]! w-full! font-bold! text-[18px]!;
 }
