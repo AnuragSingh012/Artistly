@@ -19,13 +19,17 @@ const ArtistList = ({ query }) => {
     return bTime - aTime;
   });
 
-  return (
-    <ul className="mt-7 card_grid">
-      {filtered.map((artist, index) => (
-        <ArtistCard key={artist.id || `${artist.name}-${index}`} artist={artist} />
-      ))}
-    </ul>
-  );
+  return filtered.length > 0 ? (
+  <ul className="mt-7 card_grid">
+    {filtered.map((artist, index) => (
+      <ArtistCard key={artist.id || `${artist.name}-${index}`} artist={artist} />
+    ))}
+  </ul>
+) : (
+  <p className="no_result">
+    No artist found
+  </p>
+);
 };
 
 export default ArtistList;
